@@ -49,7 +49,7 @@ class Board():
         for z in range(self.n): 
             for y in range(self.n):
                 for x in range(self.n):
-                    if self.pieces[z][x][y]==0:
+                    if self.pieces[z][x][y]==0 and (z == 0 or self.pieces[z-1][x][y] != 0):
                         newmove = (z,x,y)
                         moves.add(newmove)
         return list(moves)
