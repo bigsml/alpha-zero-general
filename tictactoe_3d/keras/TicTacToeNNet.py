@@ -7,7 +7,6 @@ from keras.models import *
 from keras.layers import *
 from keras.optimizers import *
 
-import tensorflow as tf
 from tensorflow.keras.optimizers import *
 
 """

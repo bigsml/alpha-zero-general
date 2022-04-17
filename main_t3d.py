@@ -33,9 +33,12 @@ args = dotdict({
 
 TIC_NUMBER = 4
 
+def game_factory():
+    return Game(TIC_NUMBER)
+
 def main():
     log.info('Loading %s...', Game.__name__)
-    g = Game(TIC_NUMBER)
+    g = game_factory()
 
     log.info('Loading %s...', NNet.__name__)
     nnet = NNet(g)
@@ -47,7 +50,7 @@ def main():
         log.warning('Not loading a checkpoint!')
 
     log.info('Loading the Coach...')
-    c = Coach(g, nnet, args)
+    c = Coach(g, nnet, args, game_factory=game_factory)
 
     if args.load_model:
         log.info("Loading 'trainExamples' from file...")
